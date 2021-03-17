@@ -8,7 +8,7 @@
   <script src="assets/js/anime.min.js"></script>
   <title>Document</title>
 </head>
-<body class="theme1">
+<body class="theme1 chimes-bg-primary">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220"><path fill="#793a91" fill-opacity="1" d="M0,224L288,64L576,96L864,128L1152,32L1440,224L1440,0L1152,0L864,0L576,0L288,0L0,0Z"></path></svg>
   <section id="sec-1" class="container p-5">
     <heading class="text-center d-block" style="margin-top: -80px !important;">
@@ -24,27 +24,85 @@
     </article>
   </section>
 
-  <section class="container">
+  <section class="container p-md-5 p-1 chimes-animate-slidefadein">
     <heading></heading>
     <article class="p-3">
       <p class="chimes-font-2">
-        Marketing involves finding your target market and identifying issues and <span class="font-weight-bold">pain points</span> that they may be looking to resolve, 
-        and then reaching out to them through various means to let them <span class="font-weight-bold">know about your solution</span> 
+        Marketing involves finding your target market and identifying issues and <span class="font-weight-bold chimes-color-accent1">pain points</span> that they may be looking to resolve, 
+        and then reaching out to them through various means to let them <span class="font-weight-bold chimes-color-accent1">know about your solution</span> 
         and then hopefully get them to become your customers.
       </p>
       
       <p class="chimes-font-2">
-        As a provider of I.T. solutions, Chimes Consulting may best be marketed highlighting the following: 
+        As a provider of I.T. solutions, Chimes Consulting may best be marketed with the following: 
       </p>
     </article>
   </section>
 
-  <section>
-    <div class="row">
-      <col class="col-md-6"></col>
-      <col class="col-md-6"></col>
+  <section class="container chimes-animate-slidefadein">
+    <div class="row p-md-5 p-1">
+      <div class="col-md-6 p-3">
+        <img src="assets/images/undraw_progressive_app_m9ms.svg" class="img-fluid"/>
+      </div>
+      <div class="col-md-6 p-3">
+        <heading>
+          <h1>1. Use of New Technology</h1>
+        </heading>
+        <article>
+          <p class="chimes-font-2">Being up to date and able to utilize new tools and technology allows for the maximization of efficiency and quality.</p>
+        </article>
+      </div>
     </div>
   </section>
+
+  <section class="container chimes-animate-slidefadein">
+    <div class="row p-md-5 p-1">
+      <div class="col-md-6 p-3">
+        <heading>
+          <h1>2. Showcasing of Previous Works and Testimonies from Satisfied Customers</h1>
+        </heading>
+        <article>
+          <p class="chimes-font-2">Having other people vouch for the quality of a service will attract other clients.</p>
+        </article>
+      </div>
+      <div class="col-md-6 p-3">
+        <img src="assets/images/undraw_reviews_lp8w.svg" class="img-fluid"/>
+      </div>
+    </div>
+  </section>
+
+  <section class="container chimes-animate-slidefadein">
+    <div class="row p-md-5 p-1">
+      <div class="col-md-6 p-3">
+        <img src="assets/images/undraw_Social_media_re_w12q.svg" class="img-fluid"/>
+      </div>
+      <div class="col-md-6 p-3">
+        <heading>
+          <h1>3. Use of Social Media and Online Blogging Platforms</h1>
+        </heading>
+        <article>
+          <p class="chimes-font-2">Using platforms that are highly popular will surely provide a wider reach of audience.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="container chimes-animate-slidefadein">
+    <div class="row p-md-5 p-1">
+      <div class="col-md-6 p-3">
+        <heading>
+          <h1>4. Smart and Competitive Pricing</h1>
+        </heading>
+        <article>
+          <p class="chimes-font-2">Affordable and appropriately priced products and services attract the attention and consideration of customers.</p>
+        </article>
+      </div>
+      <div class="col-md-6 p-3">
+        <img src="assets/images/undraw_Savings_re_eq4w.svg" class="img-fluid"/>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>
 
@@ -56,6 +114,36 @@
 </style>
 
 <script defer>
+  //ANIMATIONS
+  window.onscroll = function(){
+    console.log("asd");
+    document.querySelectorAll(".chimes-animate-slidefadein").forEach(el => {
+      if(isInViewportPartially(el) && !el.classList.contains("animation-activated")){
+        el.classList.add("animation-activated");
+        slideFadeIn(el);
+      }
+    })
+  }
+
+  //check if in viewport partially
+  function isInViewportPartially(el) {
+    const elBorders = el.getBoundingClientRect();
+    let elMiddle = elBorders.top + (elBorders.bottom - elBorders.top)/2;
+    return (
+      elMiddle <= (window.innerHeight || document.documentElement.clientHeight)
+    );
+  }
+
+  //ANIMATION FUNCTIONS
+  let slideFadeIn = el => anime({
+    targets: el,
+    opacity: [0,1],
+    translateY: ['3rem', 0],
+    easing: "easeOutExpo",
+    duration: 2000,
+    complete: function() {
+    }
+  });
 
   //put every letter in the text on a separate tag
   const textWrapper = document.querySelectorAll('.chimes-animate-wavetext');
