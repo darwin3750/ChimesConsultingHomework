@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/anime.min.js"></script>
+  <title>Document</title>
+</head>
+<body class="theme1">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220"><path fill="#793a91" fill-opacity="1" d="M0,224L288,64L576,96L864,128L1152,32L1440,224L1440,0L1152,0L864,0L576,0L288,0L0,0Z"></path></svg>
+  <section id="sec-1" class="container p-5">
+    <heading class="text-center d-block" style="margin-top: -80px !important;">
+      <img src="https://chimesconsulting.com/frontend/assets/logo.png" class="img-fluid"/>
+      
+      <h5 class="chimes-animate-wavetext">Chimes Consulting's Assessment Homework</h5>
+      <h1 class="font-weight-bold chimes-animate-wavetext mt-3">How are you going to market Chimes Consulting?</h1>
+      <hr class="chimes-bg-secondary chimes-animate-slidescale" style="padding: 2px"/>
+      <h3 class="chimes-animate-fadein">by: Darwin A. Medel</h3>
+    </heading>
+    <article class="d-flex justify-content-center p-5">
+      <img src="https://livewithmsc.com/wp-content/uploads/2019/06/animated-arrow.gif" height="100px" width="auto" class="mt-5"/>
+    </article>
+  </section>
+
+  <section class="container">
+    <heading></heading>
+    <article class="p-3">
+      <p class="chimes-font-2">
+        Marketing involves finding your target market and identifying issues and <span class="font-weight-bold">pain points</span> that they may be looking to resolve, 
+        and then reaching out to them through various means to let them <span class="font-weight-bold">know about your solution</span> 
+        and then hopefully get them to become your customers.
+      </p>
+      
+      <p class="chimes-font-2">
+        As a provider of I.T. solutions, Chimes Consulting may best be marketed highlighting the following: 
+      </p>
+    </article>
+  </section>
+
+  <section>
+    <div class="row">
+      <col class="col-md-6"></col>
+      <col class="col-md-6"></col>
+    </div>
+  </section>
+</body>
+</html>
+
+<style>
+  #sec-1::before{
+  }
+  #sec-1{
+  }
+</style>
+
+<script defer>
+
+  //put every letter in the text on a separate tag
+  const textWrapper = document.querySelectorAll('.chimes-animate-wavetext');
+  let textRetain = [];
+  textWrapper.forEach(e => {
+    textRetain.push(e.innerHTML);
+    e.innerHTML = e.textContent.replace(/\S/g, 
+      "<div class='chimes-animate-wavetext-letter-container'><span class='chimes-animate-wavetext-letter'>$&</span></div>");
+  });
+
+  //animate texts
+  anime.timeline({ loop: false }).add({
+    targets: '.chimes-animate-wavetext-letter',
+    translateY: [-100, 0],
+    easing: "easeOutExpo",
+    delay: (el, i) => i * 30,
+    duration: 800,
+    offset: 600,
+    complete: function() {
+      document.querySelectorAll('.chimes-animate-wavetext').forEach((e, i)=>{
+        e.innerHTML = "<div class='d-inline-block overflow-hidden'>" + textRetain[i] + "</div>"
+      });
+    }
+  }).add({
+    targets: '.chimes-animate-slidescale',
+    scaleX: [0,1],
+    opacity: [0,1],
+    easing: "easeOutQuad",
+    offset: '-=1100',
+    duration: 800,
+  }).add({
+    targets: '.chimes-animate-fadein',
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    offset: '-=200',
+    duration: 600,
+  })
+</script>

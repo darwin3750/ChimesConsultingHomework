@@ -1,0 +1,37 @@
+.chimes-animate-wavetext-letter-container {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 0;
+}
+.chimes-animate-wavetext-letter {
+  display: inline-block;
+  line-height: 1em;
+}
+.chimes-animate-wavetext{
+  transition: 0.6s;
+}
+.chimes-animate-slidescale{
+  opacity: 0;
+  transform-origin: 0 0;
+}
+
+.chimes-animate-slidein{
+  transform: translateX(-100%);
+}
+
+.chimes-animate-slidedown{
+  transform: translateY(-100%);
+}
+
+.chimes-animate-slideup{
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.chimes-animate-fadein, .chimes-animate-fadein2{
+  opacity: 0;
+}
+
+.chimes-animate-slidefadein{
+  opacity: 0;
+}
